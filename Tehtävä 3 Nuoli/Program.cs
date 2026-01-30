@@ -20,14 +20,27 @@
         }
         class Nuoli
         {
-            public Kärki Kärki { get; set; }
-            public Perä Perä { get; set; }
-            public int VarrenPituus { get; set; }
+            private Kärki Kärki;
+            private Perä Perä;
+            private int VarrenPituus;
             public Nuoli(Kärki kärki, Perä perä, int varrenPituus)
             {
                 Kärki = kärki;
                 Perä = perä;
                 VarrenPituus = varrenPituus;
+            }
+            // Getterit
+            public Kärki GetKärki()
+            {
+                return Kärki;
+            }
+            public Perä GetPerä()
+            {
+                return Perä;
+            }
+            public int GetVarrenPituus()
+            {
+                return VarrenPituus;
             }
             public double PalautaHinta()
             {
