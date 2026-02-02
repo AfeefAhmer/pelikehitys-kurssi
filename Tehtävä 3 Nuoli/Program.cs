@@ -20,27 +20,23 @@
         }
         class Nuoli
         {
-            private Kärki Kärki;
-            private Perä Perä;
-            private int VarrenPituus;
+            public Kärki Kärki{get;private set;}
+            public Perä Perä { get; private set; }
+            private int varrenPituus;
+            public int VarrenPituus
+            {
+                get { return varrenPituus; }
+                private set
+                {
+                    if (value >= 60 && value <= 100)
+                        varrenPituus = value;
+                }
+            }
             public Nuoli(Kärki kärki, Perä perä, int varrenPituus)
             {
                 Kärki = kärki;
                 Perä = perä;
                 VarrenPituus = varrenPituus;
-            }
-            // Getterit
-            public Kärki GetKärki()
-            {
-                return Kärki;
-            }
-            public Perä GetPerä()
-            {
-                return Perä;
-            }
-            public int GetVarrenPituus()
-            {
-                return VarrenPituus;
             }
             public double PalautaHinta()
             {
