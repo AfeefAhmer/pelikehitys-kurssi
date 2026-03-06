@@ -9,7 +9,9 @@ namespace Tehtävä_4_seikkailureppu
             Reppu reppu = new Reppu(10, 20, 15);
             while (true)
             {
-                reppu.TulostaTiedot();
+                Console.WriteLine(reppu);
+                Console.WriteLine();
+
                 Console.WriteLine("Mitä haluat lisätä");
                 Console.WriteLine("Nuoli: 1");
                 Console.WriteLine("Jousi: 2");
@@ -42,7 +44,8 @@ namespace Tehtävä_4_seikkailureppu
                         tavara = new Miekka();
                         break;
                     case "0":
-                        reppu.TulostaTiedot();
+                        Console.WriteLine(reppu);
+                        Console.WriteLine();
                         return;
                 }
                 if (tavara != null!) 
@@ -74,31 +77,55 @@ namespace Tehtävä_4_seikkailureppu
     public class Nuoli : Tavara
     {
         public Nuoli() : base(0.1, 0.05) { }
+        public override string ToString()
+        {
+            return "Nuoli";
+        }
     }
 
     public class Jousi : Tavara
     {
         public Jousi() : base(1, 4) { }
+        public override string ToString()
+        {
+            return "Jousi";
+        }
     }
 
     public class Koysi : Tavara
     {
         public Koysi() : base(1, 1.5) { }
+        public override string ToString()
+        {
+            return "Koysi";
+        }
     }
 
     public class Vesi : Tavara
     {
         public Vesi() : base(2, 2) { }
+        public override string ToString()
+        {
+            return "Vesi";
+        }
     }
 
     public class RuokaAnnos : Tavara
     {
         public RuokaAnnos() : base(1, 0.5) { }
+        public override string ToString()
+        {
+            return "RuokaAnnos";
+        }
     }
 
     public class Miekka : Tavara
     {
         public Miekka() : base(5, 3) { }
+        public override string ToString()
+        {
+            return "Miekka";
+        }
     }
 
 
@@ -134,6 +161,23 @@ namespace Tehtävä_4_seikkailureppu
 
             tavarat.Add(tavara);
             return true;
+        }
+        public override string ToString()
+        {
+            if (tavarat.Count == 0)
+                return "Repussa ei ole tavaroita.";
+
+            string teksti = "Repussa on seuraavat tavarat: ";
+
+            for (int i = 0; i < tavarat.Count; i++)
+            {
+                teksti += tavarat[i];
+
+                if (i < tavarat.Count - 1)
+                    teksti += ", ";
+            }
+
+            return teksti;
         }
 
         public void TulostaTiedot()
